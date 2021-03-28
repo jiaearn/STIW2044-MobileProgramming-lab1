@@ -1,16 +1,17 @@
-# lab1
+## Student Info:
+  NAME: TAN JIA EARN
 
-A new Flutter project.
+  MATRIC NUMBER: 269509
 
-## Getting Started
+## Introduction:
+   For this Flutter mobile application is the individual lab 1 of STIW2044: Mobile Programming(A202), in this lab1 we need to convert the web application from https://www.omnicalculator.com/health/a-body-shape-index to Flutter mobile application. This Flutter mobile application is a calculator that calculates the body shape index and estimates the risk of premature death based on the body shape index (ABSI). In this procedure, the user needs to provide some personal data in order to continue the program. The personal data that should be provided are gender, age, height, weight and waist circumference. Then, after the user enters the data, the program will calculate the ABSI and ABSI z scores and display the results of the risk of premature death.
 
-This project is a starting point for a Flutter application.
+## Interface Screenshot
 
-A few resources to get you started if this is your first Flutter project:
+    Input
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+    Output
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Link to your youtube presentation
+
+## Link to Github
