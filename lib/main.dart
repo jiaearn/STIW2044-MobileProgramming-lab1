@@ -494,46 +494,90 @@ class _MyAppState extends State<MyApp> {
   void calculateMe() {
     setState(() {
       double height, weight, waist, bmi;
-      if (heightDrop == 1) {
-        height = double.parse(heightTextEditingController.text) / 100;
-      } else if (heightDrop == 2) {
-        height = double.parse(heightTextEditingController.text);
-      } else if (heightDrop == 3) {
-        height = double.parse(heightTextEditingController.text) / 39.37007874;
-      } else if (heightDrop == 4) {
-        height = double.parse(heightTextEditingController.text) / 3.280839895;
-      }
+      if (ageTextEditingController.text.isNotEmpty &&
+          heightTextEditingController.text.isNotEmpty &&
+          weightTextEditingController.text.isNotEmpty &&
+          waistTextEditingController.text.isNotEmpty) {
+        if (heightDrop == 1) {
+          height = double.parse(heightTextEditingController.text) / 100;
+        } else if (heightDrop == 2) {
+          height = double.parse(heightTextEditingController.text);
+        } else if (heightDrop == 3) {
+          height = double.parse(heightTextEditingController.text) / 39.37007874;
+        } else if (heightDrop == 4) {
+          height = double.parse(heightTextEditingController.text) / 3.280839895;
+        }
 
-      if (weightDrop == 1) {
-        weight = double.parse(weightTextEditingController.text);
-      } else if (weightDrop == 2) {
-        weight = double.parse(weightTextEditingController.text) / 2.204622622;
-      } else if (weightDrop == 3) {
-        weight = double.parse(weightTextEditingController.text) / 0.1574730444;
-      }
+        if (weightDrop == 1) {
+          weight = double.parse(weightTextEditingController.text);
+        } else if (weightDrop == 2) {
+          weight = double.parse(weightTextEditingController.text) / 2.204622622;
+        } else if (weightDrop == 3) {
+          weight =
+              double.parse(weightTextEditingController.text) / 0.1574730444;
+        }
 
-      if (waistDrop == 1) {
-        waist = double.parse(waistTextEditingController.text) / 100;
-      } else if (waistDrop == 2) {
-        waist = double.parse(waistTextEditingController.text);
-      } else if (waistDrop == 3) {
-        waist = double.parse(waistTextEditingController.text) / 39.37007874;
-      }
-      bmi = weight / (height * height);
-      aBSI = waist / (pow(bmi, (2 / 3)) * pow(height, 1 / 2));
-      calculateaBSIMean();
+        if (waistDrop == 1) {
+          waist = double.parse(waistTextEditingController.text) / 100;
+        } else if (waistDrop == 2) {
+          waist = double.parse(waistTextEditingController.text);
+        } else if (waistDrop == 3) {
+          waist = double.parse(waistTextEditingController.text) / 39.37007874;
+        }
+        bmi = weight / (height * height);
+        aBSI = waist / (pow(bmi, (2 / 3)) * pow(height, 1 / 2));
+        calculateaBSIMean();
 
-      aBSIZ = (aBSI - aBSIM) / aBSISD;
-      if (aBSIZ < -0.868) {
-        result = 'very low 👌';
-      } else if (aBSIZ >= -0.868 && aBSIZ < -0.272) {
-        result = 'low 👍';
-      } else if (aBSIZ >= -0.272 && aBSIZ < 0.229) {
-        result = 'average ✔️';
-      } else if (aBSIZ >= 0.229 && aBSIZ < 0.798) {
-        result = 'high ❗';
-      } else if (aBSIZ >= 0.798) {
-        result = 'very high ❗❗❗';
+        aBSIZ = (aBSI - aBSIM) / aBSISD;
+        if (aBSIZ < -0.868) {
+          result = 'very low 👌';
+        } else if (aBSIZ >= -0.868 && aBSIZ < -0.272) {
+          result = 'low 👍';
+        } else if (aBSIZ >= -0.272 && aBSIZ < 0.229) {
+          result = 'average ✔️';
+        } else if (aBSIZ >= 0.229 && aBSIZ < 0.798) {
+          result = 'high ❗';
+        } else if (aBSIZ >= 0.798) {
+          result = 'very high ❗❗❗';
+        }
+      } else if (ageTextEditingController.text.isEmpty &&
+          heightTextEditingController.text.isNotEmpty &&
+          weightTextEditingController.text.isNotEmpty &&
+          waistTextEditingController.text.isNotEmpty) {
+        if (heightDrop == 1) {
+          height = double.parse(heightTextEditingController.text) / 100;
+        } else if (heightDrop == 2) {
+          height = double.parse(heightTextEditingController.text);
+        } else if (heightDrop == 3) {
+          height = double.parse(heightTextEditingController.text) / 39.37007874;
+        } else if (heightDrop == 4) {
+          height = double.parse(heightTextEditingController.text) / 3.280839895;
+        }
+
+        if (weightDrop == 1) {
+          weight = double.parse(weightTextEditingController.text);
+        } else if (weightDrop == 2) {
+          weight = double.parse(weightTextEditingController.text) / 2.204622622;
+        } else if (weightDrop == 3) {
+          weight =
+              double.parse(weightTextEditingController.text) / 0.1574730444;
+        }
+
+        if (waistDrop == 1) {
+          waist = double.parse(waistTextEditingController.text) / 100;
+        } else if (waistDrop == 2) {
+          waist = double.parse(waistTextEditingController.text);
+        } else if (waistDrop == 3) {
+          waist = double.parse(waistTextEditingController.text) / 39.37007874;
+        }
+        bmi = weight / (height * height);
+        aBSI = waist / (pow(bmi, (2 / 3)) * pow(height, 1 / 2));
+        aBSIZ = 0;
+        result = '';
+      } else {
+        aBSI = 0;
+        aBSIZ = 0;
+        result = '';
       }
     });
   }
